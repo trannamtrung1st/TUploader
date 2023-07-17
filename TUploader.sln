@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.33906.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TUploader", "TUploader\TUploader.csproj", "{558A3A9D-4F48-4DB7-8DCA-E8C726757BA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{558A3A9D-4F48-4DB7-8DCA-E8C726757BA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{558A3A9D-4F48-4DB7-8DCA-E8C726757BA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{558A3A9D-4F48-4DB7-8DCA-E8C726757BA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{558A3A9D-4F48-4DB7-8DCA-E8C726757BA6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {612CB72B-08E2-4EA9-A56C-58B1FF055F5A}
+	EndGlobalSection
+EndGlobal
