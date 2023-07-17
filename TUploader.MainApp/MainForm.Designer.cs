@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.fileSystemWatcher = new System.IO.FileSystemWatcher();
             this.txtWatchingPath = new System.Windows.Forms.TextBox();
@@ -40,6 +41,7 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblDescription = new System.Windows.Forms.Label();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).BeginInit();
             this.SuspendLayout();
             // 
@@ -155,6 +157,12 @@
             this.lblDescription.TabIndex = 9;
             this.lblDescription.Text = resources.GetString("lblDescription.Text");
             // 
+            // notifyIcon
+            // 
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "TUploader";
+            this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -170,8 +178,10 @@
             this.Controls.Add(this.lblDriveFolder);
             this.Controls.Add(this.txtWatchingPath);
             this.Controls.Add(this.lblWatchingFolder);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "TUploader";
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -190,6 +200,7 @@
         private System.Windows.Forms.Label lblUploadedFile;
         private System.Windows.Forms.Label lblDriveFolder;
         private System.Windows.Forms.Label lblDescription;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
     }
 }
 

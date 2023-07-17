@@ -128,5 +128,24 @@ namespace TUploader.MainApp
                 MessageBox.Show(ex.Message, "Error", buttons: default, icon: MessageBoxIcon.Error);
             }
         }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            //if the form is minimized
+            //hide it from the task bar
+            //and show the system tray icon (represented by the NotifyIcon control)
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                Hide();
+                notifyIcon.Visible = true;
+            }
+        }
+
+        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Show();
+            this.WindowState = FormWindowState.Normal;
+            notifyIcon.Visible = false;
+        }
     }
 }
