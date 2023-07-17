@@ -11,9 +11,25 @@ namespace TUploader.MainApp
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            bool result;
+            System.Threading.Mutex mutex = new System.Threading.Mutex(true, nameof(TUploader), out result);
+
+            if (!result)
+            {
+                MessageBox.Show("Another instance is already running.");
+                return;
+            }
+
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new MainForm());
+            }
+            finally
+            {
+                mutex.ReleaseMutex();
+            }
         }
     }
 }
