@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.fileSystemWatcher = new System.IO.FileSystemWatcher();
             this.txtWatchingPath = new System.Windows.Forms.TextBox();
             this.txtResult = new System.Windows.Forms.TextBox();
@@ -38,6 +39,7 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.lblDescription = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,6 +121,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(800, 41);
             this.txtEmail.TabIndex = 6;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // lblEmail
             // 
@@ -141,11 +144,23 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // lblDescription
+            // 
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblDescription.Location = new System.Drawing.Point(0, 260);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.lblDescription.Size = new System.Drawing.Size(766, 84);
+            this.lblDescription.TabIndex = 9;
+            this.lblDescription.Text = resources.GetString("lblDescription.Text");
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblEmail);
@@ -174,6 +189,7 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblUploadedFile;
         private System.Windows.Forms.Label lblDriveFolder;
+        private System.Windows.Forms.Label lblDescription;
     }
 }
 
