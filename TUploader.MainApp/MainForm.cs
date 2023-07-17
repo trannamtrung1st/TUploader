@@ -46,7 +46,7 @@ namespace TUploader.MainApp
             {
                 try
                 {
-                    if (e.ChangeType == WatcherChangeTypes.Created)
+                    if (e.ChangeType == WatcherChangeTypes.Created || e.ChangeType == WatcherChangeTypes.Changed)
                     {
                         Invoke((Func<Task>)(async () =>
                         {

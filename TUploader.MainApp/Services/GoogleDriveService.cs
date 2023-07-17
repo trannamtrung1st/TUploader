@@ -47,8 +47,8 @@ namespace TUploader.MainApp.Services
                 FilesResource.ListRequest listRequest = _driveService.Files.List();
                 listRequest.Q = $"name = '{defaultFolderName}' and mimeType = 'application/vnd.google-apps.folder' and trashed=false";
                 listRequest.Fields = "files(id,name)";
-                Google.Apis.Drive.v3.Data.FileList result = await listRequest.ExecuteAsync(cancellationToken);
-                Google.Apis.Drive.v3.Data.File folderFile = result.Files.FirstOrDefault(f => f.Parents == null && f.Name == defaultFolderName);
+                Google.Apis.Drive.v3.Data.FileList folderResult = await listRequest.ExecuteAsync(cancellationToken);
+                Google.Apis.Drive.v3.Data.File folderFile = folderResult.Files.FirstOrDefault(f => f.Parents == null && f.Name == defaultFolderName);
 
                 if (folderFile == null)
                 {
@@ -67,23 +67,34 @@ namespace TUploader.MainApp.Services
             }
 
             string fileName = Path.GetFileName(filePath);
-
-            Google.Apis.Drive.v3.Data.File fileMetadata = new Google.Apis.Drive.v3.Data.File()
-            {
-                Name = fileName,
-                Parents = new List<string> { folderId }
-            };
-            FilesResource.CreateMediaUpload request;
+            FilesResource.ListRequest listFileRequest = _driveService.Files.List();
+            listFileRequest.Q = $"name = '{fileName}' and trashed=false and '{folderId}' in parents";
+            listFileRequest.Fields = "files(id,name,mimeType)";
+            Google.Apis.Drive.v3.Data.FileList fileResult = await listFileRequest.ExecuteAsync(cancellationToken);
+            Google.Apis.Drive.v3.Data.File fileMetadata = fileResult.Files.FirstOrDefault();
 
             using (FileStream stream = new FileStream(filePath, FileMode.Open))
             {
-                string contentType = MimeTypes.GetMimeType(fileName);
-                request = _driveService.Files.Create(fileMetadata, stream, contentType);
-                request.Fields = "id";
-                request.Upload();
-            }
+                if (fileMetadata == null)
+                {
+                    fileMetadata = new Google.Apis.Drive.v3.Data.File()
+                    {
+                        Name = fileName,
+                        Parents = new List<string> { folderId }
+                    };
 
-            Google.Apis.Drive.v3.Data.File file = request.ResponseBody;
+                    string contentType = MimeTypes.GetMimeType(fileName);
+                    FilesResource.CreateMediaUpload request = _driveService.Files.Create(fileMetadata, stream, contentType);
+                    request.Upload();
+                }
+                else
+                {
+                    FilesResource.UpdateMediaUpload request = _driveService.Files.Update(
+                        new Google.Apis.Drive.v3.Data.File(),
+                        fileMetadata.Id, stream, fileMetadata.MimeType);
+                    request.Upload();
+                }
+            }
         }
     }
 }
