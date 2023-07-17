@@ -31,6 +31,7 @@ namespace TUploader.MainApp
             txtDriveFolder.Text = _settingsModel.DriveFolder;
             txtEmail.Text = _settingsModel.Email;
             txtWatchingPath.Text = _settingsModel.WatchingPath;
+            lblDescription.MaximumSize = new System.Drawing.Size((int)(this.ClientSize.Width * 0.9), 1000);
 
             if (_settingsModel.Email != null)
             {

@@ -59,7 +59,7 @@
             this.txtWatchingPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWatchingPath.Location = new System.Drawing.Point(0, 16);
             this.txtWatchingPath.Name = "txtWatchingPath";
-            this.txtWatchingPath.Size = new System.Drawing.Size(800, 41);
+            this.txtWatchingPath.Size = new System.Drawing.Size(797, 41);
             this.txtWatchingPath.TabIndex = 0;
             this.txtWatchingPath.TextChanged += new System.EventHandler(this.txtWatchingPath_TextChanged);
             // 
@@ -70,7 +70,7 @@
             this.txtResult.Location = new System.Drawing.Point(0, 130);
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
-            this.txtResult.Size = new System.Drawing.Size(800, 41);
+            this.txtResult.Size = new System.Drawing.Size(797, 41);
             this.txtResult.TabIndex = 2;
             // 
             // txtDriveFolder
@@ -79,7 +79,7 @@
             this.txtDriveFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDriveFolder.Location = new System.Drawing.Point(0, 73);
             this.txtDriveFolder.Name = "txtDriveFolder";
-            this.txtDriveFolder.Size = new System.Drawing.Size(800, 41);
+            this.txtDriveFolder.Size = new System.Drawing.Size(797, 41);
             this.txtDriveFolder.TabIndex = 1;
             this.txtDriveFolder.TextChanged += new System.EventHandler(this.txtDriveFolder_TextChanged);
             // 
@@ -119,7 +119,7 @@
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(0, 187);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(800, 41);
+            this.txtEmail.Size = new System.Drawing.Size(797, 41);
             this.txtEmail.TabIndex = 6;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
@@ -138,7 +138,7 @@
             this.btnLogin.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLogin.Location = new System.Drawing.Point(0, 228);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(800, 32);
+            this.btnLogin.Size = new System.Drawing.Size(797, 32);
             this.btnLogin.TabIndex = 8;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -150,8 +150,8 @@
             this.lblDescription.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblDescription.Location = new System.Drawing.Point(0, 260);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.lblDescription.Size = new System.Drawing.Size(766, 84);
+            this.lblDescription.Padding = new System.Windows.Forms.Padding(10);
+            this.lblDescription.Size = new System.Drawing.Size(786, 84);
             this.lblDescription.TabIndex = 9;
             this.lblDescription.Text = resources.GetString("lblDescription.Text");
             // 
@@ -159,7 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(797, 450);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtEmail);
